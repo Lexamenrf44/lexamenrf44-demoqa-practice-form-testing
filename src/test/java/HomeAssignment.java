@@ -1,3 +1,4 @@
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,6 +8,8 @@ import java.io.File;
 
 import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.Browsers.OPERA;
+import static com.codeborne.selenide.Condition.appear;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -41,17 +44,22 @@ public class HomeAssignment {
         $(byText("Sports")).click();
         File file = new File("src/test/resources/readme.txt");
         $("input[id='uploadPicture']").uploadFile(file);
-        $("#currentAddress").setValue("Address");
+        $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
         $("[id='submit']").click();
 
-        selenideStudentRegistrationPracticeFormTestCheck();
-    }
-
-    void selenideStudentRegistrationPracticeFormTestCheck() {
-
-
+        $(byText("Thanks for submitting the form")).should(appear);
+        $(byText("Thanks for submitting the form")).shouldBe(visible);
+        $(byText("abarashkov@email.ru")).shouldBe(visible);
+        $(byText("Male")).shouldBe(visible);
+        $(byText("8999888447")).shouldBe(visible);
+        $(byText("26 November,1992")).shouldBe(visible);
+        $(byText("Computer Science, English")).shouldBe(visible);
+        $(byText("Sports")).shouldBe(visible);
+        $(byText("readme.txt")).shouldBe(visible);
+        $(byText("My Address")).shouldBe(visible);
+        $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
 
     }
 
@@ -59,5 +67,4 @@ public class HomeAssignment {
     void after(){
         closeWebDriver();
     }
-
 }
