@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/src/lexamenrf44-demoqa/lexamenrf44-demoqa.iml" filepath="$PROJECT_DIR$/src/lexamenrf44-demoqa/lexamenrf44-demoqa.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/lexamenrf44-demoqa-practice-form-testing.iml" filepath="$PROJECT_DIR$/.idea/lexamenrf44-demoqa-practice-form-testing.iml" />
-    </modules>
-  </component>
-</project>
