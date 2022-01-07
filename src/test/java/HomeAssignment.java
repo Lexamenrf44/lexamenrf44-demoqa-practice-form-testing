@@ -58,6 +58,5 @@ public class HomeAssignment {
         $(byText("readme.txt")).shouldBe(visible);
         $(byText("My Address")).shouldBe(visible);
         $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
-
     }
 }
