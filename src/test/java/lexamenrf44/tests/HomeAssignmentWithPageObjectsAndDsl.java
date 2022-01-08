@@ -11,9 +11,10 @@ import static com.codeborne.selenide.Browsers.OPERA;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.clearBrowserCookies;
 
-public class HomeAssignmentPageObjects {
+public class HomeAssignmentWithPageObjectsAndDsl {
 
     RegistrationForm registrationForm = new RegistrationForm();
 
@@ -26,16 +27,14 @@ public class HomeAssignmentPageObjects {
         Configuration.browserSize = "1920x1080";
 
         clearBrowserCookies();
-
     }
 
     @Test
-    void selenideStudentRegistrationPracticeFormTest() {
+    void studentRegistrationPracticeFormWithPageObjectsTest() {
 
-        registrationForm.openUrl();
-
-        registrationForm.typeFirstName("Alexander");
-        registrationForm.typeLastName("Barashkov");
+        registrationForm.openUrl().
+                         typeFirstName("Alexander").
+                         typeLastName("Barashkov");
 
         $("[id='userEmail']").setValue("abarashkov@email.ru");
         $("[for='gender-radio-1']").click();

@@ -2,6 +2,7 @@ package lexamenrf44.pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -10,16 +11,23 @@ public class RegistrationForm {
     SelenideElement firstNameInput = $("#firstName"),
                     lastNameInput = $("#lastName");
 
-    public void openUrl() {
+    public RegistrationForm openUrl() {
         open("/automation-practice-form");
+        $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
+
+        return this;
     }
 
-    public void typeFirstName(String value) {
+    public RegistrationForm typeFirstName(String value) {
         firstNameInput.setValue(value);
+
+        return this;
     }
 
-    public void typeLastName(String value) {
+    public RegistrationForm typeLastName(String value) {
         lastNameInput.setValue(value);
+
+        return this;
     }
 
 }
