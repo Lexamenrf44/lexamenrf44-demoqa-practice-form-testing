@@ -1,6 +1,7 @@
 package lexamenrf44.tests;
 
 import com.codeborne.selenide.Configuration;
+import lexamenrf44.pages.RegistrationForm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,23 +15,28 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class HomeAssignmentPageObjects {
 
+    RegistrationForm registrationForm = new RegistrationForm();
+
     @BeforeEach
     void browserOpeningConfiguration() {
 
+        Configuration.baseUrl = "https://demoqa.com";
         Configuration.browser = OPERA;
         Configuration.fastSetValue = false;
         Configuration.browserSize = "1920x1080";
 
         clearBrowserCookies();
 
-        open("https://demoqa.com/automation-practice-form");
     }
 
     @Test
     void selenideStudentRegistrationPracticeFormTest() {
 
-        $("#firstName").setValue("Alexander");
-        $("[id=\"lastName\"]").setValue("Barashkov");
+        registrationForm.openUrl();
+
+        registrationForm.typeFirstName("Alexander");
+        registrationForm.typeLastName("Barashkov");
+
         $("[id='userEmail']").setValue("abarashkov@email.ru");
         $("[for='gender-radio-1']").click();
         $("[placeholder='Mobile Number']").setValue("8999888447");
