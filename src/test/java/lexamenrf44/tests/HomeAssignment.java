@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Browsers.CHROME;
 import static com.codeborne.selenide.Browsers.OPERA;
 import static com.codeborne.selenide.Condition.appear;
 import static com.codeborne.selenide.Condition.visible;
@@ -57,7 +56,7 @@ public class HomeAssignment {
         $(byText("26 November,1992")).shouldBe(visible);
         $(byText("Computer Science, English")).shouldBe(visible);
         $(byText("Sports")).shouldBe(visible);
-        $(byText("readme.txt")).shouldBe(visible);
+        $(byText("txt/readme.txt")).shouldBe(visible);
         $(byText("My Address")).shouldBe(visible);
         $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
 

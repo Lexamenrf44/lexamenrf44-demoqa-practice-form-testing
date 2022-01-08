@@ -32,13 +32,13 @@ public class HomeAssignmentWithPageObjectsAndDsl {
     @Test
     void studentRegistrationPracticeFormWithPageObjectsTest() {
 
-        registrationForm.openUrl().
-                         typeFirstName("Alexander").
-                         typeLastName("Barashkov");
+        registrationForm.openUrl()
+                        .enterFirstName("Alexander")
+                        .enterLastName("Barashkov")
+                        .enterUserEmail("abarashkov@email.ru")
+                        //.selectUserGender(Gender.MALE);
+                        .enterUserPhone("8889997711");
 
-        $("[id='userEmail']").setValue("abarashkov@email.ru");
-        $("[for='gender-radio-1']").click();
-        $("[placeholder='Mobile Number']").setValue("8999888447");
         $("[id='dateOfBirthInput']").click();
         $(byText("November")).click();
         $(byText("1992")).click();
@@ -46,12 +46,22 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         $("#subjectsInput").setValue("Computer Science").pressEnter();
         $("#subjectsInput").setValue("English").pressEnter();
         $(byText("Sports")).click();
-        File file = new File("src/test/resources/readme.txt");
-        $("input[id='uploadPicture']").uploadFile(file);
+        $("#uploadPicture").uploadFromClasspath("txt/readme.txt");
         $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
         $("[id='submit']").click();
+
+        registrationForm.checkSubmittedFormTable("Student Name", "Alexander Barashkov")
+                        .checkSubmittedFormTable("Student Email", "a@a.com")
+                        .checkSubmittedFormTable("Gender", "MALE")
+                        .checkSubmittedFormTable("Mobile", "")
+                        .checkSubmittedFormTable("Date of Birth", "")
+                        .checkSubmittedFormTable("Subjects", "")
+                        .checkSubmittedFormTable("Hobbies", "")
+                        .checkSubmittedFormTable("Picture", "")
+                        .checkSubmittedFormTable("Address", "")
+                        .checkSubmittedFormTable("State and City", "");
 
         $(byText("Thanks for submitting the form")).should(appear);
         $(byText("Thanks for submitting the form")).shouldBe(visible);
@@ -61,7 +71,7 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         $(byText("26 November,1992")).shouldBe(visible);
         $(byText("Computer Science, English")).shouldBe(visible);
         $(byText("Sports")).shouldBe(visible);
-        $(byText("readme.txt")).shouldBe(visible);
+        $(byText("txt/readme.txt")).shouldBe(visible);
         $(byText("My Address")).shouldBe(visible);
         $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
 

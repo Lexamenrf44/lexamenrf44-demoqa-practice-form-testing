@@ -33,8 +33,8 @@ public class HomeAssignmentWithPageObjects {
 
         registrationForm.openUrl();
 
-        registrationForm.typeFirstName("Alexander");
-        registrationForm.typeLastName("Barashkov");
+        registrationForm.enterFirstName("Alexander");
+        registrationForm.enterLastName("Barashkov");
 
         $("[id='userEmail']").setValue("abarashkov@email.ru");
         $("[for='gender-radio-1']").click();
@@ -46,8 +46,7 @@ public class HomeAssignmentWithPageObjects {
         $("#subjectsInput").setValue("Computer Science").pressEnter();
         $("#subjectsInput").setValue("English").pressEnter();
         $(byText("Sports")).click();
-        File file = new File("src/test/resources/readme.txt");
-        $("input[id='uploadPicture']").uploadFile(file);
+        $("#uploadPicture").uploadFromClasspath("txt/readme.txt");
         $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
@@ -61,7 +60,7 @@ public class HomeAssignmentWithPageObjects {
         $(byText("26 November,1992")).shouldBe(visible);
         $(byText("Computer Science, English")).shouldBe(visible);
         $(byText("Sports")).shouldBe(visible);
-        $(byText("readme.txt")).shouldBe(visible);
+        $(byText("txt/readme.txt")).shouldBe(visible);
         $(byText("My Address")).shouldBe(visible);
         $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
 
