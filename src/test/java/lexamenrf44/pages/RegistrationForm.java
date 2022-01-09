@@ -14,8 +14,7 @@ public class RegistrationForm {
                     emailInput = $("#userEmail"),
                     genderRadio = $("#genterWrapper"),
                     phoneInput = $("#userNumber"),
-                    dateOfBirthInput,
-                    subjectsInput,
+                    subjectsInput = $("#subjectsInput"),
                     hobbiesInput,
                     pictureInput = $("#uploadPicture"),
                     currentAddressInput = $("#currentAddress"),
@@ -51,16 +50,20 @@ public class RegistrationForm {
         return this;
     }
 
-    /*
-    public RegistrationForm selectUserGender(Gender gender) {
-        userGenderRadio.$(byText(String.valueOf(gender))).click();
+    public RegistrationForm selectUserGender (String gender) {
+        genderRadio.find(byText(gender)).click();
 
         return this;
     }
-    */
 
     public RegistrationForm enterUserPhone(String phone) {
         phoneInput.setValue(phone);
+
+        return this;
+    }
+
+    public RegistrationForm enterUserSubjects (String subject) {
+        subjectsInput.setValue(subject).pressEnter();
 
         return this;
     }

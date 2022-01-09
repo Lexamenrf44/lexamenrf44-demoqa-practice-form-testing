@@ -1,6 +1,7 @@
 package lexamenrf44.tests;
 
 import com.codeborne.selenide.Configuration;
+import lexamenrf44.constants.ConstantsForRegForm;
 import lexamenrf44.pages.RegistrationForm;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
+import static lexamenrf44.constants.ConstantsForRegForm.*;
 
 public class HomeAssignmentWithPageObjectsAndDsl {
 
@@ -25,6 +27,7 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         Configuration.browser = OPERA;
         Configuration.fastSetValue = false;
         Configuration.browserSize = "1920x1080";
+        Configuration.holdBrowserOpen = true;
 
         clearBrowserCookies();
     }
@@ -36,8 +39,9 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                         .enterFirstName("Alexander")
                         .enterLastName("Barashkov")
                         .enterUserEmail("abarashkov@email.ru")
-                        //.selectUserGender(Gender.MALE);
-                        .enterUserPhone("8889997711");
+                        .selectUserGender(Gender.MALE)
+                        .enterUserPhone("8889997711")
+                        .enterUserSubjects(Subjects.MATH);
 
         $("[id='dateOfBirthInput']").click();
         $(byText("November")).click();
@@ -50,7 +54,7 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
-        $("[id='submit']").click();
+        //$("[id='submit']").click();
 
         registrationForm.checkSubmittedFormTable("Student Name", "Alexander Barashkov")
                         .checkSubmittedFormTable("Student Email", "a@a.com")
