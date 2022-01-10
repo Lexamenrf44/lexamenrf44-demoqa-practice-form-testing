@@ -1,6 +1,7 @@
 package lexamenrf44.pages;
 
 import com.codeborne.selenide.SelenideElement;
+import lexamenrf44.components.Calendar;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -20,9 +21,10 @@ public class RegistrationForm {
                     currentAddressInput = $("#currentAddress"),
                     stateInput = $("#react-select-3-input"),
                     cityInput = $("#react-select-4-input"),
-                    submitButton,
+                    submitButton = $("#submit"),
 
                     submittedFormTable = $(".table-responsive");
+
 
 
     public RegistrationForm openUrl() {
@@ -62,6 +64,12 @@ public class RegistrationForm {
         return this;
     }
 
+    public RegistrationForm selectDateOfBirth(String month, String year, String day) {
+        new Calendar().setDate(month, year, day);
+
+        return this;
+    }
+
     public RegistrationForm enterUserSubjects (String subject) {
         subjectsInput.setValue(subject).pressEnter();
 
@@ -94,6 +102,12 @@ public class RegistrationForm {
 
     public RegistrationForm enterUserCity (String city) {
         cityInput.setValue(city).pressEnter();
+
+        return this;
+    }
+
+    public RegistrationForm submitUserRegistrationForm () {
+        submitButton.click();
 
         return this;
     }

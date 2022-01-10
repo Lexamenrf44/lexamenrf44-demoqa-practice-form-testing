@@ -40,6 +40,7 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                         .enterUserEmail("abarashkov@email.ru")
                         .selectUserGender(Gender.MALE)
                         .enterUserPhone("8889997711")
+                        .selectDateOfBirth("November", "1992", "26")
                         .enterUserSubjects(Subjects.MATH)
                         .enterUserSubjects(Subjects.ENGLISH)
                         .selectUserHobbies(Hobbies.SPORTS)
@@ -47,30 +48,24 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                         .uploadUserPictureFile("img/image.png")
                         .enterUserCurrentAddress("My current address")
                         .enterUserState(States.NCR)
-                        .enterUserCity(Cities.DELHI);
+                        .enterUserCity(Cities.DELHI)
+                        .submitUserRegistrationForm();
+
+
 
         /*
 
-        $("[id='dateOfBirthInput']").click();
+
         $(byText("November")).click();
         $(byText("1992")).click();
         $("[class*='026']").click();
-        $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
-        $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
-        //$("[id='submit']").click();
 
          */
 
         registrationForm.checkSubmittedFormTable("Student Name", "Alexander Barashkov")
-                        .checkSubmittedFormTable("Student Email", "a@a.com")
-                        .checkSubmittedFormTable("Gender", "MALE")
-                        .checkSubmittedFormTable("Mobile", "")
-                        .checkSubmittedFormTable("Date of Birth", "")
-                        .checkSubmittedFormTable("Subjects", "")
-                        .checkSubmittedFormTable("Hobbies", "")
-                        .checkSubmittedFormTable("Picture", "")
-                        .checkSubmittedFormTable("Address", "")
-                        .checkSubmittedFormTable("State and City", "");
+                        .checkSubmittedFormTable("Student Email", "abarashkov@email.ru");
+
+        /*
 
         $(byText("Thanks for submitting the form")).should(appear);
         $(byText("Thanks for submitting the form")).shouldBe(visible);
@@ -84,5 +79,6 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         $(byText("My Address")).shouldBe(visible);
         $(byText("Rajasthan Jaiselmer")).shouldBe(visible);
 
+         */
     }
 }
