@@ -18,8 +18,8 @@ public class RegistrationForm {
                     hobbiesInput = $("#hobbiesWrapper"),
                     pictureInput = $("#uploadPicture"),
                     currentAddressInput = $("#currentAddress"),
-                    stateInput,
-                    cityInput,
+                    stateInput = $("#react-select-3-input"),
+                    cityInput = $("#react-select-4-input"),
                     submitButton,
 
                     submittedFormTable = $(".table-responsive");
@@ -76,6 +76,24 @@ public class RegistrationForm {
 
     public RegistrationForm uploadUserPictureFile (String fileName) {
         pictureInput.uploadFromClasspath(fileName);
+
+        return this;
+    }
+
+    public RegistrationForm enterUserCurrentAddress (String address) {
+        currentAddressInput.setValue(address);
+
+        return this;
+    }
+
+    public RegistrationForm enterUserState (String state) {
+        stateInput.setValue(state).pressEnter();
+
+        return this;
+    }
+
+    public RegistrationForm enterUserCity (String city) {
+        cityInput.setValue(city).pressEnter();
 
         return this;
     }

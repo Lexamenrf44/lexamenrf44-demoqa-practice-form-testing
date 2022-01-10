@@ -44,7 +44,10 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                         .enterUserSubjects(Subjects.ENGLISH)
                         .selectUserHobbies(Hobbies.SPORTS)
                         .selectUserHobbies(Hobbies.READING)
-                        .uploadUserPictureFile("img/image.png");
+                        .uploadUserPictureFile("img/image.png")
+                        .enterUserCurrentAddress("My current address")
+                        .enterUserState(States.NCR)
+                        .enterUserCity(Cities.DELHI);
 
         /*
 
@@ -52,7 +55,6 @@ public class HomeAssignmentWithPageObjectsAndDsl {
         $(byText("November")).click();
         $(byText("1992")).click();
         $("[class*='026']").click();
-        $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
         //$("[id='submit']").click();
