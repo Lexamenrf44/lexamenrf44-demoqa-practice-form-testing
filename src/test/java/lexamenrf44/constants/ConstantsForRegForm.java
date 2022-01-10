@@ -12,7 +12,7 @@ public class ConstantsForRegForm {
 
 }
 
-public static class Subjects {
+    public static class Subjects {
 
         public static final String MATH = "Maths";
 
@@ -20,6 +20,18 @@ public static class Subjects {
 
         public static final String ECONOMICS = "Economics";
 
-}
+        public static final String ENGLISH = "English";
+
+    }
+
+    public static class Hobbies {
+
+        public static final String SPORTS = "Sports";
+
+        public static final String READING = "Reading";
+
+        public static final String MUSIC = "Music";
+
+    }
 
 }

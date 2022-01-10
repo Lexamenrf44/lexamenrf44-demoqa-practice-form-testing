@@ -9,8 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 
 import static com.codeborne.selenide.Browsers.OPERA;
-import static com.codeborne.selenide.Condition.appear;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.clearBrowserCookies;
@@ -41,20 +40,24 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                         .enterUserEmail("abarashkov@email.ru")
                         .selectUserGender(Gender.MALE)
                         .enterUserPhone("8889997711")
-                        .enterUserSubjects(Subjects.MATH);
+                        .enterUserSubjects(Subjects.MATH)
+                        .enterUserSubjects(Subjects.ENGLISH)
+                        .selectUserHobbies(Hobbies.SPORTS)
+                        .selectUserHobbies(Hobbies.READING)
+                        .uploadUserPictureFile("img/image.png");
+
+        /*
 
         $("[id='dateOfBirthInput']").click();
         $(byText("November")).click();
         $(byText("1992")).click();
         $("[class*='026']").click();
-        $("#subjectsInput").setValue("Computer Science").pressEnter();
-        $("#subjectsInput").setValue("English").pressEnter();
-        $(byText("Sports")).click();
-        $("#uploadPicture").uploadFromClasspath("txt/readme.txt");
         $("#currentAddress").setValue("My Address");
         $("[id='react-select-3-input']").setValue("Rajasthan").pressEnter();
         $("[id='react-select-4-input']").setValue("Jaiselmer").pressEnter();
         //$("[id='submit']").click();
+
+         */
 
         registrationForm.checkSubmittedFormTable("Student Name", "Alexander Barashkov")
                         .checkSubmittedFormTable("Student Email", "a@a.com")

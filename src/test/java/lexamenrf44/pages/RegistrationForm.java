@@ -15,7 +15,7 @@ public class RegistrationForm {
                     genderRadio = $("#genterWrapper"),
                     phoneInput = $("#userNumber"),
                     subjectsInput = $("#subjectsInput"),
-                    hobbiesInput,
+                    hobbiesInput = $("#hobbiesWrapper"),
                     pictureInput = $("#uploadPicture"),
                     currentAddressInput = $("#currentAddress"),
                     stateInput,
@@ -68,7 +68,13 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm uploadPictureFile (String fileName) {
+    public RegistrationForm selectUserHobbies (String hobby) {
+        hobbiesInput.find(byText(hobby)).click();
+
+        return this;
+    }
+
+    public RegistrationForm uploadUserPictureFile (String fileName) {
         pictureInput.uploadFromClasspath(fileName);
 
         return this;
