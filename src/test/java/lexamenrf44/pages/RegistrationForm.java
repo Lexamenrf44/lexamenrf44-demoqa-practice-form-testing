@@ -64,8 +64,8 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm selectDateOfBirth(String month, String year, String day) {
-        new Calendar().setDate(month, year, day);
+    public RegistrationForm selectDateOfBirth(String day, String month, String year) {
+        new Calendar().setDate(day, month, year);
 
         return this;
     }
