@@ -36,27 +36,27 @@ public class HomeAssignmentWithPageObjectsAndDsl {
     void studentRegistrationPracticeFormWithPageObjectsTest() {
 
         registrationForm.openUrl()
-                        .enterFirstName(firstName)
-                        .enterLastName(lastName)
-                        .enterUserEmail(email)
-                        .selectUserGender(Gender.MALE)
-                        .enterUserPhone(phone)
-                        .selectDateOfBirth( "26", "November", "1992")
-                        .enterUserSubjects(Subjects.MATH)
-                        .enterUserSubjects(Subjects.ENGLISH)
-                        .selectUserHobbies(Hobbies.SPORTS)
-                        .selectUserHobbies(Hobbies.READING)
-                        .uploadUserPictureFile("img/image.png")
-                        .enterUserCurrentAddress(address)
-                        .enterUserState(States.NCR)
-                        .enterUserCity(Cities.DELHI)
-                        .submitUserRegistrationForm();
+                .enterFirstName(firstName)
+                .enterLastName(lastName)
+                .enterUserEmail(email)
+                .selectUserGender(Gender.MALE)
+                .enterUserPhone(phone)
+                .selectDateOfBirth("26", "November", "1992")
+                .enterUserSubjects(Subjects.MATH)
+                .enterUserSubjects(Subjects.ENGLISH)
+                .selectUserHobbies(Hobbies.SPORTS)
+                .selectUserHobbies(Hobbies.READING)
+                .uploadUserPictureFile("img/image.png")
+                .enterUserCurrentAddress(address)
+                .enterUserState(States.NCR)
+                .enterUserCity(Cities.DELHI)
+                .submitUserRegistrationForm();
 
 
         registrationForm.checkSubmittedFormTable("Student Name", " " + firstName + " " + lastName)
-                        .checkSubmittedFormTable("Student Email", " " + email)
-                        .checkSubmittedFormTable("Mobile", " " + phone)
-                        .checkSubmittedFormTable("Date of Birth", "26 November,1992");
+                .checkSubmittedFormTable("Student Email", " " + email)
+                .checkSubmittedFormTable("Mobile", " " + phone)
+                .checkSubmittedFormTable("Date of Birth", "26 November,1992");
 
     }
 }

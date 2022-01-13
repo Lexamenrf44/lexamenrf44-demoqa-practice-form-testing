@@ -11,20 +11,19 @@ import static com.codeborne.selenide.Selenide.open;
 public class RegistrationForm {
 
     SelenideElement firstNameInput = $("#firstName"),
-                    lastNameInput = $("#lastName"),
-                    emailInput = $("#userEmail"),
-                    genderRadio = $("#genterWrapper"),
-                    phoneInput = $("#userNumber"),
-                    subjectsInput = $("#subjectsInput"),
-                    hobbiesInput = $("#hobbiesWrapper"),
-                    pictureInput = $("#uploadPicture"),
-                    currentAddressInput = $("#currentAddress"),
-                    stateInput = $("#react-select-3-input"),
-                    cityInput = $("#react-select-4-input"),
-                    submitButton = $("#submit"),
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            genderRadio = $("#genterWrapper"),
+            phoneInput = $("#userNumber"),
+            subjectsInput = $("#subjectsInput"),
+            hobbiesInput = $("#hobbiesWrapper"),
+            pictureInput = $("#uploadPicture"),
+            currentAddressInput = $("#currentAddress"),
+            stateInput = $("#react-select-3-input"),
+            cityInput = $("#react-select-4-input"),
+            submitButton = $("#submit"),
 
-                    submittedFormTable = $(".table-responsive");
-
+    submittedFormTable = $(".table-responsive");
 
 
     public RegistrationForm openUrl() {
@@ -52,7 +51,7 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm selectUserGender (String gender) {
+    public RegistrationForm selectUserGender(String gender) {
         genderRadio.find(byText(gender)).click();
 
         return this;
@@ -70,49 +69,49 @@ public class RegistrationForm {
         return this;
     }
 
-    public RegistrationForm enterUserSubjects (String subject) {
+    public RegistrationForm enterUserSubjects(String subject) {
         subjectsInput.setValue(subject).pressEnter();
 
         return this;
     }
 
-    public RegistrationForm selectUserHobbies (String hobby) {
+    public RegistrationForm selectUserHobbies(String hobby) {
         hobbiesInput.find(byText(hobby)).click();
 
         return this;
     }
 
-    public RegistrationForm uploadUserPictureFile (String fileName) {
+    public RegistrationForm uploadUserPictureFile(String fileName) {
         pictureInput.uploadFromClasspath(fileName);
 
         return this;
     }
 
-    public RegistrationForm enterUserCurrentAddress (String address) {
+    public RegistrationForm enterUserCurrentAddress(String address) {
         currentAddressInput.setValue(address);
 
         return this;
     }
 
-    public RegistrationForm enterUserState (String state) {
+    public RegistrationForm enterUserState(String state) {
         stateInput.setValue(state).pressEnter();
 
         return this;
     }
 
-    public RegistrationForm enterUserCity (String city) {
+    public RegistrationForm enterUserCity(String city) {
         cityInput.setValue(city).pressEnter();
 
         return this;
     }
 
-    public RegistrationForm submitUserRegistrationForm () {
+    public RegistrationForm submitUserRegistrationForm() {
         submitButton.click();
 
         return this;
     }
 
-    public RegistrationForm checkSubmittedFormTable (String key, String value) {
+    public RegistrationForm checkSubmittedFormTable(String key, String value) {
         submittedFormTable.$(byText(key))
                 .parent().shouldHave(text(value));
 
