@@ -1,9 +1,14 @@
 package lexamenrf44.tests;
 
+import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import lexamenrf44.pages.RegistrationForm;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.OPERA;
 import static lexamenrf44.constants.ConstantsForRegForm.*;
 
 public class HomeAssignmentWithPageObjectsAndDsl {
@@ -16,6 +21,15 @@ public class HomeAssignmentWithPageObjectsAndDsl {
     String phone = faker.number().digits(10);
 
     RegistrationForm registrationForm = new RegistrationForm();
+
+    @BeforeAll
+    static void browserOpeningConfiguration() {
+
+        Configuration.baseUrl = "https://demoqa.com";
+        Configuration.browser = OPERA;
+        Configuration.fastSetValue = false;
+        Configuration.holdBrowserOpen = false;
+    }
 
     @Test
     void studentRegistrationPracticeFormWithPageObjectsTest() {
@@ -47,6 +61,10 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                 .checkSubmittedFormTable("Picture", "image.png")
                 .checkSubmittedFormTable("Address", " " + address)
                 .checkSubmittedFormTable("State and City", "NCR" + " " + "DELHI");
+
+    }
+    @AfterEach
+    void closeWebDriver() {
 
     }
 
