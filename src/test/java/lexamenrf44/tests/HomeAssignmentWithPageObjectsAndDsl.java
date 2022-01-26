@@ -1,13 +1,9 @@
 package lexamenrf44.tests;
 
-import com.codeborne.selenide.Configuration;
 import com.github.javafaker.Faker;
 import lexamenrf44.pages.RegistrationForm;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Browsers.CHROME;
 import static lexamenrf44.constants.ConstantsForRegForm.*;
 
 public class HomeAssignmentWithPageObjectsAndDsl {
@@ -51,10 +47,6 @@ public class HomeAssignmentWithPageObjectsAndDsl {
                 .checkSubmittedFormTable("Picture", "image.png")
                 .checkSubmittedFormTable("Address", " " + address)
                 .checkSubmittedFormTable("State and City", "NCR" + " " + "DELHI");
-
-    }
-    @AfterEach
-    void closeWebDriver() {
 
     }
 
