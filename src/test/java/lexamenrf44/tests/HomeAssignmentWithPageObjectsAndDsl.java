@@ -21,15 +21,6 @@ public class HomeAssignmentWithPageObjectsAndDsl {
 
     RegistrationForm registrationForm = new RegistrationForm();
 
-    @BeforeAll
-    static void browserOpeningConfiguration() {
-
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browser = CHROME;
-        Configuration.fastSetValue = false;
-        Configuration.holdBrowserOpen = false;
-    }
-
     @Test
     void studentRegistrationPracticeFormWithPageObjectsTest() {
 

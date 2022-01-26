@@ -27,7 +27,7 @@ public class RegistrationForm {
 
 
     public RegistrationForm openUrl() {
-        open("/automation-practice-form");
+        open("https://demoqa.com/automation-practice-form");
         $(".practice-form-wrapper").shouldHave(text("Student Registration Form"));
 
         return this;
