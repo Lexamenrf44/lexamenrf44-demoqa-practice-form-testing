@@ -89,7 +89,6 @@ public class HomeAssignmentWithPageObjectsAndDsl extends BrowserSetup {
                 .checkSubmittedFormTable("Date of Birth", "26 November,1992")
                 .checkSubmittedFormTable("Subjects", "Maths," + " " + "English")
                 .checkSubmittedFormTable("Hobbies", "Sports," + " " + "Reading")
-                .checkSubmittedFormTable("Picture", "image.png")
                 .checkSubmittedFormTable("Address", " " + address)
                 .checkSubmittedFormTable("State and City", "NCR" + " " + "DELHI");
         });
