@@ -1,7 +1,7 @@
 package lexamenrf44.tests;
 
 import com.github.javafaker.Faker;
-import lexamenrf44.browserConfiguration.BrowserSetup;
+import lexamenrf44.configuration.BrowserSetup;
 import lexamenrf44.pages.RegistrationForm;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
