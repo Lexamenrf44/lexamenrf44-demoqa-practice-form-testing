@@ -33,7 +33,7 @@ public class HomeAssignmentWithPageObjectsAndDsl extends BrowserSetup {
                 .enterUserSubjects(Subjects.ENGLISH)
                 .selectUserHobbies(Hobbies.SPORTS)
                 .selectUserHobbies(Hobbies.READING)
-                .uploadUserPictureFile("img/image.png")
+                //.uploadUserPictureFile("img/image.png")
                 .enterUserCurrentAddress(address)
                 .enterUserState(States.NCR)
                 .enterUserCity(Cities.DELHI)
