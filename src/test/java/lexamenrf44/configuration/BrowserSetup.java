@@ -14,11 +14,19 @@ public class BrowserSetup {
 
     @BeforeAll
     static void browserOpeningConfiguration() {
+
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide());
 
+        Configuration.browser = System.getProperty("browser", "chrome");
+        Configuration.browserVersion = System.getProperty("browserVersion", "91");
+        Configuration.browserSize = System.getProperty("browserSize", "1280x1024");
+
+        String remoteUrl = System.getProperty("remoteUrl");
+        String user = System.getProperty("user");
+        String password = System.getProperty("password");
+        Configuration.remote = "https://" + user + ":" + password + "@" + remoteUrl;
+
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("enableVNC", true);
