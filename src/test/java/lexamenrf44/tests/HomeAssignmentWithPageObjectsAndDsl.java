@@ -5,11 +5,13 @@ import io.qameta.allure.*;
 import lexamenrf44.configuration.BrowserSetup;
 import lexamenrf44.pages.RegistrationForm;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import static io.qameta.allure.Allure.step;
 import static lexamenrf44.constants.ConstantsForRegForm.*;
 
+@Tag("notifications")
 public class HomeAssignmentWithPageObjectsAndDsl extends BrowserSetup {
 
     Faker faker = new Faker();
