@@ -11,7 +11,6 @@ import org.junit.jupiter.api.Test;
 import static io.qameta.allure.Allure.step;
 import static lexamenrf44.constants.ConstantsForRegForm.*;
 
-@Tag("notifications")
 public class HomeAssignmentWithPageObjectsAndDsl extends BrowserSetup {
 
     Faker faker = new Faker();
