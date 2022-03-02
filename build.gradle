@@ -38,6 +38,8 @@ dependencies {
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion",
             'org.slf4j:slf4j-simple:1.7.33'
     )
+
+    testImplementation("org.aeonbits.owner:owner:1.0.12")
 }
 
 tasks.withType(Test) {
